@@ -1,0 +1,199 @@
+/* Main container for sidebar and content */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 60px; /* Adjust the margin to accommodate for header and filter button */
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: #f9f9f9;
+    z-index: 100;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Adjust position to be below the fixed header */
+    left: 0;
+    width: 20%;
+    padding: 10px;
+    border-right: 2px solid #ddd;
+    height: calc(100vh - 80px); /* Full height minus the header */
+    background-color: #f0f0f0;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Content section for blog posts */
+.blog-list {
+    width: 80%;
+    margin-left: 20%; /* Offset the content to the right of the sidebar */
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 80px; /* Prevent the content from overlapping with the fixed header */
+}
+
+.post-list {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0;
+}
+
+.post-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.post-body {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.see-more {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.post-details {
+    font-size: 0.9rem;
+    display: flex;
+    gap: 15px;
+    color: #888;
+}
+.filter-options {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px ;
+    margin-top: 50px;
+
+}
+.filter-options button {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    background-color: #007bff; /* Restore button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.filter-options button:focus {
+    outline: none;
+}
+
+.filter-options button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.error-message {
+    color: red;
+}
+
+.loading {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Mobile and Small Screen View */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin-top: 0; /* No need for extra margin-top on small screens */
+    }
+.filter-options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 0px;
+    flex-wrap: wrap;
+
+}
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+    }
+
+    .blog-list {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    /* Filter Buttons Fix */
+    .filter-options {
+        position: fixed; /* Fix filter options to top */
+        top: 80px; /* Place the filter buttons below the fixed header */
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        padding: 10px;
+        display: flex;
+        gap: 15px;
+        z-index: 101; /* Ensure it's above other content */
+        border-bottom: 1px solid #ddd;
+        overflow-x: auto; /* Allow horizontal scrolling */
+        justify-content: space-around;
+        box-sizing: border-box;
+    }
+
+
+    /* Adjusting the All Posts button */
+    .filter-options .all-posts {
+        flex: 1; /* Make the 'All Posts' button take up available space */
+        text-align: center;
+    }
+}
+
+/* For even smaller screens like mobile */
+@media (max-width: 480px) {
+    .header{
+        display:none;
+    }
+    .filter-options {
+        position: fixed;
+        top: 0px;
+    }
+    .filter-options button {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
+
+    .post-item {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .post-title {
+        font-size: 1.3rem;
+    }
+}

@@ -1,10 +1,10 @@
 import './App.css';
-import FetchData from './components/FetchData';
+import FetchWeather from './components/FetchWeather';
 
 function App() {
   return (
     <div>
-      <FetchData /> 
+      <FetchWeather /> 
     </div>
   );
 }
